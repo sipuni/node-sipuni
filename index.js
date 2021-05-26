@@ -4,22 +4,32 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
 class SipuniApi {
 
-    host = 'http://10.1.0.34';
+    host = 'http://sipuni.com';
+    token;
     userId;
 
-    constructor(args) {
-        if (!args || !args.call_args || !args.call_args.pbx_user_id)
-            throw 'user id not set';
-        this.userId = args.call_args.pbx_user_id;
+    constructor(token,host='http://sipuni.com') {
+        this.host=host;
+        if (!token)
+            throw 'token not set';
+        this.userId=this.getUserIdByToken(token);
+        if(!this.userId)
+            throw 'invalid token'
+        this.token=token;
     }
 
     async sendNotifyWebphone(shortNum) {
         let res = await axios.post(this.host + '/ext/sendNotifyWebPhoneExtension', {
-            userId: userId,
+            userId: this.userId,
             shortNum: shortNum,
             data: {}
         });
         return res.data.success;
+    }
+
+    getUserIdByToken(token){
+        //todo api call for userId
+        return 1;
     }
 }
 
