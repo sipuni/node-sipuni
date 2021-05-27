@@ -17,7 +17,7 @@ class SipuniApi {
         let res = await axios.post(this.host + '/ext/sendNotifyWebPhoneExtension', {
             token: this.token,
             shortNum: shortNum,
-        });
+        }, {headers: {}});
         return !!res.data.success;
     }
 }
