@@ -7,9 +7,22 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index"
   },
-  "author": "",
+  "author": "Sipuni <support@sipuni.com>",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sipuni/node-sipuni.git"
+  },
+  "keywords": [
+    "sipuni",
+    "api"
+  ],
+  "bugs": {
+    "url": "https://github.com/sipuni/node-sipuni/issues"
+  },
+  "homepage": "https://github.com/sipuni/node-sipuni#readme"
 }
