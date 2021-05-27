@@ -1,5 +1,5 @@
 {
-  "name": "node-sipuni",
+  "name": "@sipuni/node-sipuni",
   "version": "0.0.1",
   "description": "Модуль для работы с API Sipuni",
   "main": "index.js",
@@ -10,7 +10,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1",
-    "http": "0.0.1-security"
+    "axios": "^0.21.1"
   }
 }

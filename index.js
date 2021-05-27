@@ -1,35 +1,24 @@
 const axios = require('axios');
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
-
 
 class SipuniApi {
 
-    host = 'http://sipuni.com';
+    host = 'https://sipuni.com';
     token;
-    userId;
 
-    constructor(token,host='http://sipuni.com') {
-        this.host=host;
+    constructor({token, host}) {
+        if (host)
+            this.host = host;
         if (!token)
             throw 'token not set';
-        this.userId=this.getUserIdByToken(token);
-        if(!this.userId)
-            throw 'invalid token'
-        this.token=token;
+        this.token = token;
     }
 
     async sendNotifyWebphone(shortNum) {
         let res = await axios.post(this.host + '/ext/sendNotifyWebPhoneExtension', {
-            userId: this.userId,
+            token: this.token,
             shortNum: shortNum,
-            data: {}
         });
-        return res.data.success;
-    }
-
-    getUserIdByToken(token){
-        //todo api call for userId
-        return 1;
+        return !!res.data.success;
     }
 }
 
