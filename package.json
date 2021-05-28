@@ -1,6 +1,6 @@
 {
   "name": "@sipuni/sipuni",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Модуль для работы с API Sipuni",
   "main": "index.js",
   "scripts": {
